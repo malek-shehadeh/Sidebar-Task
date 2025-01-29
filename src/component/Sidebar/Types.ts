@@ -1,20 +1,5 @@
 
 
-// // src/components/sidebar/Types.ts
-// export interface MenuItemProps {
-//   icon: string;
-//   text: string;
-//   link: string;
-//   hasExpand?: boolean;
-//   isCollapsed?: boolean;
-  
-// }
-
-// export interface SearchBarProps {
-//   placeholder?: string;
-//   isCollapsed?: boolean;
-// }
-
 
 // Types.ts
 export interface SidebarItem {
