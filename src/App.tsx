@@ -1,24 +1,40 @@
 
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { SideMenu } from './component/Sidebar/SideMenu'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import SidebarSystem from './component/Sidebar/SidebarSystem';
+import KnowledgeBaseLayout from './component/Card/KnowledgeBaseLayout';
+import '../src/styles/Layout.scss';
+import "./index.css"
 
 function App() {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(false);
+
+  const handleSidebarToggle = (collapsed: boolean) => {
+    setIsSidebarCollapsed(collapsed);
+  };
+
+  const handleSubmenuToggle = (show: boolean) => {
+    setShowSubmenu(show);
+  };
+
   return (
     <BrowserRouter>
-      <div className="flex">
-        <SideMenu />
-        <main className="flex-1">
+      <div className="app-container">
+        <SidebarSystem 
+          onSidebarToggle={handleSidebarToggle}
+          onSubmenuToggle={handleSubmenuToggle}
+        />
+        <main className={`mainContent ${isSidebarCollapsed ? 'expanded' : ''} ${showSubmenu ? 'with-submenu' : ''}`}>
           <Routes>
-            <Route path="/" element={<Navigate to="/" />} />
-            {/* <Route path="/home" element={<Home />} />
-            <Route path="/users" element={<UserManagement />} />
-            <Route path="/workflow" element={<WorkflowManagement />} /> */}
+            <Route path="/home" element={<Navigate to="/" />} />
+            <Route path="/" element={<KnowledgeBaseLayout />} />
           </Routes>
         </main>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

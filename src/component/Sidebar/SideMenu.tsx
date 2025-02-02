@@ -1,15 +1,16 @@
 
 
-// SideMenu.tsx
+ // SideMenu.tsx
+
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuItem } from './MenuItem';
 import { sidebarData } from '../data/sidebarData';
-import { SearchBarProps } from './Types';
-
+import { SideMenuProps, SidebarSearchBarProps, SidebarItem, SidebarData } from './Types';
 import '../../styles/Sidebar.scss';
 
-const SearchBar: React.FC<SearchBarProps & { onSearch: (term: string) => void }> = ({
+const SearchBar: React.FC<SidebarSearchBarProps> = ({
   placeholder = 'Search',
   isCollapsed = false,
   onSearch
@@ -67,30 +68,52 @@ const SearchBar: React.FC<SearchBarProps & { onSearch: (term: string) => void }>
   );
 };
 
-export const SideMenu: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+export const SideMenu: React.FC<SideMenuProps> = ({ 
+  onToggle, 
+  onMenuItemClick,
+  isCollapsed,
+  style,
+  className 
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeItem, setActiveItem] = useState<SidebarData | null>(null);
   const navigate = useNavigate();
-
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
 
   const handleLogoClick = () => {
     navigate('/');
+    setActiveItem(null);
   };
 
   const handleSearch = (term: string) => {
     setSearchTerm(term.toLowerCase());
   };
 
-  // Filter menu items based on search term
+  const handleToggle = () => {
+    onToggle(!isCollapsed);
+  };
+
+  const handleMenuItemClick = (item: SidebarItem) => {
+    setActiveItem(item as SidebarData); // Always update active item
+    
+    if (item.hasExpand) {
+      onMenuItemClick(item);
+    } else {
+      // عند النقر على عنصر عادي، نرسل null لإغلاق السايد بار الفرعي
+      onMenuItemClick({...item, hasExpand: false, submenuItems: undefined});
+      navigate(item.link);
+    }
+  };
+
   const filteredMenuItems = sidebarData.filter(item =>
     item.text.toLowerCase().includes(searchTerm)
   );
 
   return (
-    <nav className={`sideMenuSingle ${isCollapsed ? 'collapsed' : ''}`} aria-label="Main Navigation">
+    <nav 
+      className={`sideMenuSingle ${isCollapsed ? 'collapsed' : ''} ${className || ''}`}
+      aria-label="Main Navigation"
+      style={style}
+    >
       <div className="sideMenuHeader">
         <div className="logoSection">
           <div 
@@ -111,7 +134,7 @@ export const SideMenu: React.FC = () => {
           <img
             src={isCollapsed ? "/src/assets/sidebar-right.svg" : "/src/assets/sidebar-left.svg"}
             alt="Toggle sidebar"
-            onClick={toggleSidebar}
+            onClick={handleToggle}
             className="collapseIcon"
             role="button"
             aria-label="Toggle Menu"
@@ -126,11 +149,17 @@ export const SideMenu: React.FC = () => {
       <div className="mainMenu">
         {!isCollapsed && <h2 className="menuTitle">Main Menu</h2>}
         <div className="menuItems" role="menu">
-          {filteredMenuItems.map((item) => (
+          {(filteredMenuItems as SidebarData[]).map((item: SidebarData) => (
             <MenuItem
               key={item.text}
-              {...item}
+              icon={item.icon}
+              text={item.text}
+              link={item.link}
+              hasExpand={item.hasExpand}
+              submenuItems={item.submenuItems}
               isCollapsed={isCollapsed}
+              isActive={activeItem?.text === item.text}
+              onExpandClick={handleMenuItemClick}
             />
           ))}
         </div>

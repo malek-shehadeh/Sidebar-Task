@@ -1,0 +1,55 @@
+//layout.scss
+// @use './index' as *;
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 10px;
+  gap: 10px;
+  position: relative;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 5px 0px 0px 0px;
+  width: 100%;
+  // overflow-x: hidden;
+}
+
+.mainContent {
+  margin-left: 336px;
+  transition: all 0.3s ease;
+  // width: calc(100% - 346px);
+  width:100%;
+  padding: 0;
+  
+  &.expanded {
+    margin-left: 114px;
+    width: 100%;
+  }
+
+  &.with-submenu {
+    margin-left: 446px; // 118px + 318px + 10px
+    width: calc(100% - 456px);
+  }
+  
+  &.expanded.with-submenu {
+    margin-left: 448px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    width: 100%;
+    
+    &.expanded,
+    &.with-submenu,
+    &.expanded.with-submenu {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
