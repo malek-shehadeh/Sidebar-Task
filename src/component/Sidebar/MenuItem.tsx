@@ -1,6 +1,3 @@
-
-
-
 // MenuItem.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -23,11 +20,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   submenuItems
 }) => {
   const handleClick = (e: React.MouseEvent) => {
-    // نمنع السلوك الافتراضي فقط إذا كان العنصر لديه submenu
     if (hasExpand) {
       e.preventDefault();
     }
-    // نستدعي onExpandClick في جميع الحالات
     onExpandClick?.({ 
       icon, 
       text, 

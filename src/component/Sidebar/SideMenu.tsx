@@ -1,8 +1,7 @@
 
 
  // SideMenu.tsx
-
-
+ 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuItem } from './MenuItem';
@@ -93,12 +92,11 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   };
 
   const handleMenuItemClick = (item: SidebarItem) => {
-    setActiveItem(item as SidebarData); // Always update active item
+    setActiveItem(item as SidebarData); 
     
     if (item.hasExpand) {
       onMenuItemClick(item);
     } else {
-      // عند النقر على عنصر عادي، نرسل null لإغلاق السايد بار الفرعي
       onMenuItemClick({...item, hasExpand: false, submenuItems: undefined});
       navigate(item.link);
     }

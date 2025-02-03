@@ -21,7 +21,7 @@ const KnowledgeBaseLayout: React.FC = () => {
  const staticData = Array(8).fill({
    id: 1,
    title: 'Collection Name',
-   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore aliqua.',
    image: '/Knowledge Base Thumbnil11.svg',
    sections: 12,
    articles: 50
