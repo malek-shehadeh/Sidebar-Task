@@ -89,14 +89,13 @@ const NewCollectionModal: React.FC<NewCollectionModalProps> = ({
           </div>
         </div>
 
-        {/* The lastBorder button inside modal-content */}
         <div className="lastBorder">
-          <button>
-            <img src="/add.svg" alt="add" />
-            Create Now
-          </button>
-          <p className="cancel">Cancel</p>
-        </div>
+  <button>
+    <img src="/add.svg" alt="add" />
+    Create Now
+  </button>
+  <p className="cancel" onClick={onClose} style={{ cursor: 'pointer' }}>Cancel</p>
+</div>
       </div>
     </div>
   );
