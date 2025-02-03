@@ -21,7 +21,7 @@
   border-radius: 16px;
   width: 594px;
   height: 706px;
-  margin: 4px 16px;
+  margin: 4px 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   display: flex;
@@ -39,6 +39,7 @@
   padding-bottom: 20px;
   padding-top: 8px;
   background-color:rgba(249, 250, 251, 1);
+  height: 55px;
 
   margin: -11px; 
   padding: 20px 11px; 
@@ -98,7 +99,7 @@
 }
 
 .collectionName {
-  margin-left: 42px;
+  margin-left: 41px;
   margin-top: 12px;
   width: 546px;
 }
@@ -131,13 +132,13 @@
 }
 
 .Description {
-  margin-left: 42px;
+  margin-left: 41px;
   position: relative;
 }
 
 .DescriptionForm {
-  height: 130px;
-  width: 546px;
+  height: 110px;
+  width: 524px;
   border: 0.5px solid #cbd5e1;
   padding: 12px;
   background-color: #f8fafc;
@@ -159,7 +160,7 @@
 }
 
 .mainTow {
-  margin-left: 26px;
+  margin-left: 24px;
   height: 85px;
 }
 
@@ -234,7 +235,7 @@
   display: flex;
   gap: 10px;
   width: 546px;
-  height: 191px;
+  height: 170px;
   border: 1px solid #e2e8f0;
   background-color: #f8fafc;
   border-radius: 12px;
@@ -323,4 +324,48 @@
   font-weight: 400;
   margin-right: 22px;
   // margin-top:15px
+}
+
+
+// أضف هذه الأنماط إلى ملف SCSS الخاص بك
+
+// نمط حقل الإدخال
+.input-field {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-family: Cairo;
+  font-size: 14px;
+  color: #101111;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  
+  &::placeholder {
+    color: #94a3b8;
+  }
+}
+
+// تعديل على الأزرار الحالية لتناسب حقول الإدخال
+.button-with-icon,
+.buttonTow,
+.buttonTow2 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  padding: 8px 12px;
+  width:524px;
+  input, select {
+    flex: 1;
+  }
+}
+
+// تعديل على select
+select.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 24px; // مساحة للسهم
 }

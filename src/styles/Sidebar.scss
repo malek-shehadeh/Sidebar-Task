@@ -30,12 +30,13 @@ $blue-50: rgba(239, 246, 255, 1);
   opacity: 1;
   
   &.main-sidebar {
-    left: 5px;
+    left: 24px;
     z-index: 10;
   }
 
   &.collapsed {
     width: 108px !important;
+    
     .mainMenu {
       opacity: 1;
     }
@@ -79,12 +80,16 @@ $blue-50: rgba(239, 246, 255, 1);
     padding: 12px 0 0 0;
     height: calc(100vh - 32px);
     
+    &.with-submenu {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
     .sideMenuHeader {
       width: 100%;
       align-items: center;
       padding: 8px 0;
       gap: 16px;
-      height: 124.71px;
+      height: 127.71px;
     }
     
     .logoSection {
@@ -159,10 +164,12 @@ $blue-50: rgba(239, 246, 255, 1);
   }
 
   &.submenu {
-    left: 120px;
+    left: 131px;
     z-index: 9;
     animation: slideIn 0.3s ease-out;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 
     .submenuTitle {
       display: flex;
@@ -300,7 +307,7 @@ $blue-50: rgba(239, 246, 255, 1);
   background-color: $search-bg;
   display: flex;
   max-width: 294px;
-  height: 28px;
+  height: 25px;
   padding: 8px 12px;
   gap: 0;
   align-items: center;
@@ -447,7 +454,9 @@ $blue-50: rgba(239, 246, 255, 1);
     background-color: rgba(29, 78, 216, 1);
     
     .menuItemExpand {
-      transform: rotate(45deg);
+      // transform: rotate(-45deg);
+      transform: rotate(0deg) !important;
+
     }
   }
 }
@@ -501,3 +510,4 @@ $blue-50: rgba(239, 246, 255, 1);
     opacity: 1;
   }
 }
+
