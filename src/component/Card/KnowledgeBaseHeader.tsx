@@ -12,7 +12,7 @@ export const KnowledgeBaseHeader: React.FC<KnowledgeBaseHeaderProps> = () => {
         </div>
         <nav className="navigation">
           <a href="/" className="navigationItem">
-            <img src="/public/Home.svg" alt="" aria-hidden="true" />
+            <img src="/Home.svg" alt="" aria-hidden="true" />
             <span>Home</span>
           </a>
           <a href="/notifications" className="navigationItem">
