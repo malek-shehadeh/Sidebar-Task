@@ -1,5 +1,3 @@
-
-
 // Types.ts
 export interface IMenuItem {
   icon: string;

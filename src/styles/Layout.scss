@@ -1,130 +1,7 @@
-// // //layout.scss
-// // // @use './index' as *;
-
-// // .layout {
-// //   display: flex;
-// //   min-height: 100vh;
-// //   background-color: #f1f5f9;
-// //   padding: 10px;
-// //   gap: 10px;
-// //   position: relative;
-// // }
-
-// // .app-container {
-// //   display: flex;
-// //   min-height: 100vh;
-// //   background-color: #f1f5f9;
-// //   padding: 5px 0px 0px 0px;
-// //   width: 100%;
-// //   // overflow-x: hidden;
-// // }
-
-// // .mainContent {
-// //   margin-left: 336px;
-// //   transition: all 0.3s ease;
-// //   // width: calc(100% - 346px);
-// //   width:100%;
-// //   padding: 0;
-  
-// //   &.expanded {
-// //     margin-left: 114px;
-// //     width: 100%;
-// //   }
-
-// //   &.with-submenu {
-// //     margin-left: 446px; // 118px + 318px + 10px
-// //     width: calc(100% - 456px);
-// //   }
-  
-// //   &.expanded.with-submenu {
-// //     margin-left: 448px;
-// //     width: 100%;
-// //   }
-
-// //   @media screen and (max-width: 768px) {
-// //     margin-left: 0;
-// //     width: 100%;
-    
-// //     &.expanded,
-// //     &.with-submenu,
-// //     &.expanded.with-submenu {
-// //       margin-left: 0;
-// //       width: 100%;
-// //     }
-// //   }
-// // }
-// ///////////////////////////////الاصلي فوق
-// .layout {
-//   display: flex;
-//   min-height: 100vh;
-//   background-color: #f1f5f9;
-//   padding: 10px;
-//   gap: 10px;
-//   position: relative;
-// }
-
-// .app-container {
-//   display: flex;
-//   min-height: 100vh;
-//   background-color: #f1f5f9;
-//   padding: 5px 0px 0px 0px;
-//   width: 100%;
-//   position: relative;
-// }
-
-// .mainContent {
-//   margin-left: 336px;
-//   margin-right: 60px; // Add this to keep content fixed from right
-//   transition: all 0.3s ease;
-//   width: 1038px;
-//   padding: 0;
-//   position: relative; // Add this to maintain stacking context
-  
-//   &.expanded {
-//     margin-left: 114px;
-//     margin-right: 60px;
-//     width: 1250px;
-//   }
-
-//   &.with-submenu {
-//     margin-left: 446px;
-//     margin-right: 60px;
-//     width: 931px;
-//   }
-  
-//   &.expanded.with-submenu {
-//     margin-left: 448px;
-//     margin-right: 60px;
-//     width: 1038px;
-//   }
-
-//   @media screen and (max-width: 768px) {
-//     margin-left: 0;
-//     margin-right: 60px;
-//     width: 100%;
-    
-//     &.expanded,
-//     &.with-submenu,
-//     &.expanded.with-submenu {
-//       margin-left: 0;
-//       margin-right: 60px;
-//       width: 100%;
-//     }
-//   }
-// }
-
-// // Container for the content
-// .container {
-//   width: 100%;
-//   max-width: 100%;
-//   margin: 0 auto;
-//   padding: 0 16px;
-// }
-
-
+//layout.scss
 .layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f1f5f9;
   padding: 10px;
   gap: 10px;
@@ -133,23 +10,25 @@
 
 .app-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f1f5f9;
   padding: 5px 0px 0px 0px;
   width: 100%;
   position: relative;
-  justify-content: flex-end; // Add this to align content to the right
+  justify-content: flex-end;
 }
 
 .mainContent {
   transition: all 0.3s ease;
-  width: 1038px;
+  width: 100%;
   padding: 0;
   position: relative;
-  margin-right: 40px; // Fixed right margin
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
   
   &.expanded {
-    width: 1250px;
+    width: 100%;
     margin-left: 114px;
   }
 
@@ -159,11 +38,10 @@
   }
   
   &.expanded.with-submenu {
-    width: 1038px;
+    width: 100%;
     margin-left: 448px;
   }
 
-  // Default margin for open sidebar
   margin-left: 336px;
 
   @media screen and (max-width: 768px) {
@@ -185,4 +63,6 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+  display: flex;
+  flex-direction: column;
 }

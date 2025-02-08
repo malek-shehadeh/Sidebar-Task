@@ -1,6 +1,3 @@
-
-
-
 // SidebarSystem.tsx
 import { useState } from 'react';
 import { SideMenu } from './SideMenu';
