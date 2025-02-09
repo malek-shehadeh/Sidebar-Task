@@ -1,7 +1,78 @@
-//layout.scss
+// //layout.scss
+// .layout {
+//   display: flex;
+//   height: 100vh;
+//   background-color: #f1f5f9;
+//   padding: 10px;
+//   gap: 10px;
+//   position: relative;
+// }
+
+// .app-container {
+//   display: flex;
+//   height: 100vh;
+//   background-color: #f1f5f9;
+//   padding: 5px 0px 0px 0px;
+//   width: 100%;
+//   position: relative;
+//   justify-content: flex-end;
+// }
+
+// .mainContent {
+//   transition: all 0.3s ease;
+//   width: 100%;
+//   padding: 0;
+//   position: relative;
+//   margin-right: 40px;
+//   display: flex;
+//   flex-direction: column;
+  
+//   &.expanded {
+//     width: 100%;
+//     margin-left: 114px;
+//   }
+
+//   &.with-submenu {
+//     width: 931px;
+//     margin-left: 446px;
+//   }
+  
+//   &.expanded.with-submenu {
+//     width: 100%;
+//     margin-left: 448px;
+//   }
+
+//   margin-left: 336px;
+
+//   @media screen and (max-width: 768px) {
+//     margin-left: 0;
+//     width: 100%;
+//     margin-right: 0;
+    
+//     &.expanded,
+//     &.with-submenu,
+//     &.expanded.with-submenu {
+//       margin-left: 0;
+//       width: 100%;
+//     }
+//   }
+// }
+
+// .container {
+//   width: 100%;
+//   max-width: 100%;
+//   margin: 0 auto;
+//   padding: 0 16px;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+
+
 .layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #f1f5f9;
   padding: 10px;
   gap: 10px;
@@ -10,7 +81,8 @@
 
 .app-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #f1f5f9;
   padding: 5px 0px 0px 0px;
   width: 100%;
@@ -26,6 +98,8 @@
   margin-right: 40px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  height: auto;
   
   &.expanded {
     width: 100%;
@@ -65,4 +139,6 @@
   padding: 0 16px;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }

@@ -21,7 +21,7 @@
   background: white;
   border-radius: 16px;
   width: 572px;
-  height: 854px;
+  height: 100vh;
   margin: 4px 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -319,7 +319,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 336px;
+  margin-top: 455px;
 
   button {
     display: flex;
@@ -350,14 +350,11 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  margin-right: 15px;
+  margin-right: 45px;
   // margin-top:15px
 }
 
 
-// أضف هذه الأنماط إلى ملف SCSS الخاص بك
-
-// نمط حقل الإدخال
 .input-field {
   border: none;
   background: transparent;
